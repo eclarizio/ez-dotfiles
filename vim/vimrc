@@ -56,7 +56,7 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 
 " configure ack
 let g:AckAllFiles = 0
-let g:AckCmd = 'ack --type-add ruby=.feature --ignore-dir=tmp --ignore-dir=log 2> /dev/null'
+let g:AckCmd = 'ag --type-add ruby=.feature --ignore-dir=tmp --ignore-dir=log 2> /dev/null'
 map <LocalLeader>aw :Ag '<C-R><C-W>'
 
 " hash rocket
