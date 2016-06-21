@@ -73,6 +73,19 @@ let g:ctrlp_max_files = '1000000000'
 let g:ctrlp_max_depth = '100'
 let g:ctrlp_user_command = 'mdfind -onlyin %s -name .'
 
+" Move parameters left/right
+map Ó :SidewaysLeft<CR>
+map Ò :SidewaysRight<CR>
+
+" Move lines up/down
+map Ô :m+1<CR>
+map  :m-2<CR>
+
+" ctrlp
+map <silent> <LocalLeader>t  :CtrlP<CR>
+map <silent> <LocalLeader>b  :CtrlPBuffer<CR>
+map <silent> <LocalLeader>m  :CtrlPMRU<CR>
+
 " retag
 map <silent> <LocalLeader>rt :!/opt/local/bin/ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
 
