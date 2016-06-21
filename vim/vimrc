@@ -85,6 +85,11 @@ map  :m-2<CR>
 map <silent> <LocalLeader>t  :CtrlP<CR>
 map <silent> <LocalLeader>b  :CtrlPBuffer<CR>
 map <silent> <LocalLeader>m  :CtrlPMRU<CR>
+let g:ctrlp_working_path_mode = ''
+let g:ctrlp_max_height = '30'
+let g:ctrlp_max_files = '1000000000'
+let g:ctrlp_max_depth = '100'
+let g:ctrlp_user_command = 'mdfind -onlyin %s -name . | grep -v target/ | grep -v sharedfs/ | grep -v node_modules/ | grep -v db/fixtures/ | grep -v spec/lib/miq_automation_engine/ | grep -v spa_ui/self_service/bower_components/ | grep -v spa_ui/self_service/reports/ | grep -v spa_ui/self_service/gulp/reports/ | grep -v tmp/cache/'
 
 " retag
 map <silent> <LocalLeader>rt :!/opt/local/bin/ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
