@@ -63,6 +63,7 @@ map <LocalLeader>aw :Ag '<C-R><C-W>'
 imap <C-L> <SPACE>=><SPACE>
 
 " configure ctrl-p
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 map <silent> <LocalLeader>t :CtrlP<CR>
 let g:ctrlp_user_command = 'mdfind -onlyin %s -name . | egrep -v "target/|log/|sharedfs/"'
 
