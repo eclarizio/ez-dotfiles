@@ -26,6 +26,7 @@ set directory=/tmp                          " keep swap files in one location
 set textwidth=0                             " disable automatic line breaking
 set nosmartindent                           " disable smart indenting
 set wrap                                    " wrap long lines
+set colorcolumn=120
 
 set statusline=
 set statusline+=%<\                         " cut at start
