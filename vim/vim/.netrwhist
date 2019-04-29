@@ -1,5 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/Users/comeara/projects/delayed_job/lib'
-let g:netrw_dirhist_2='/Users/comeara/.ssh'
-let g:netrw_dirhist_3='/Users/comeara/projects/rack/test/multipart'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/eclarizio/Projects/topological_inventory-operations-openshift/spec'
+let g:netrw_dirhist_2='/Users/eclarizio/Projects/topological_inventory-operations-openshift/spec/operations'
+let g:netrw_dirhist_3='/Users/eclarizio/Projects/topological_inventory-operations-openshift/spec/operations/openshift'
+let g:netrw_dirhist_4='/Users/eclarizio/Projects/topological_inventory-operations-openshift/spec/operations/openshift/core'

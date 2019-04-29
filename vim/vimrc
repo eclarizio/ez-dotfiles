@@ -13,8 +13,8 @@ set cursorline                              " highlight screen line of the curso
 set scrolloff=3                             " always show 3 lines above/below cursor line
 set number                                  " display line numbers
 set showmatch                               " briefly displays matching bracket
+set wildignore+=sharedfs/*
 set wildmode=longest,list                   " shell-like file completion
-set wildignore=sharedfs/*                   " filter sharedfs out of command-t
 set splitbelow                              " new splits open below
 set splitright                              " new vsplits open to the right
 set backspace=indent,eol,start              " intuitive backspacing
@@ -28,6 +28,7 @@ set nosmartindent                           " disable smart indenting
 set wrap                                    " wrap long lines
 set colorcolumn=120
 
+set laststatus=2
 set statusline=
 set statusline+=%<\                         " cut at start
 set statusline+=%2*[%n%H%M%R%W]%*\          " buffer number, and flags
@@ -41,6 +42,8 @@ set statusline+=%P
 
 set background=dark
 colorscheme railscasts
+
+map ; :
 
 " rspec integration
 map ,t :call RunSpecFile()<CR>
@@ -56,8 +59,8 @@ set timeout timeoutlen=1000 ttimeoutlen=100
 
 " configure ack
 let g:AckAllFiles = 0
-let g:AckCmd = 'ag --type-add ruby=.feature --ignore-dir=tmp --ignore-dir=log 2> /dev/null'
-map <LocalLeader>aw :Ag '<C-R><C-W>'
+let g:ackprg = 'ag --vimgrep --ignore-dir=locale --ignore-dir=tmp --ignore-dir=log 2> /dev/null'
+map <LocalLeader>aw :Ack! '<C-R><C-W>'
 
 " hash rocket
 imap <C-L> <SPACE>=><SPACE>
@@ -65,14 +68,6 @@ imap <C-L> <SPACE>=><SPACE>
 " configure ctrl-p
 set runtimepath^=~/.vim/bundle/ctrlp.vim
 map <silent> <LocalLeader>t :CtrlP<CR>
-let g:ctrlp_user_command = 'mdfind -onlyin %s -name . | egrep -v "target/|log/|sharedfs/"'
-
-" ctrl-p
-let g:ctrlp_working_path_mode = ''
-let g:ctrlp_max_height = '30'
-let g:ctrlp_max_files = '1000000000'
-let g:ctrlp_max_depth = '100'
-let g:ctrlp_user_command = 'mdfind -onlyin %s -name .'
 
 " Move parameters left/right
 map Ó :SidewaysLeft<CR>
@@ -90,11 +85,10 @@ let g:ctrlp_working_path_mode = ''
 let g:ctrlp_max_height = '30'
 let g:ctrlp_max_files = '1000000000'
 let g:ctrlp_max_depth = '100'
-let g:ctrlp_user_command = 'mdfind -onlyin %s -name . | grep -v target/ | grep -v sharedfs/ | grep -v node_modules/ | grep -v db/fixtures/ | grep -v spec/lib/miq_automation_engine/ | grep -v spa_ui/self_service/bower_components/ | grep -v spa_ui/self_service/reports/ | grep -v spa_ui/self_service/gulp/reports/ | grep -v tmp/cache/'
+let g:ctrlp_user_command = 'mdfind -onlyin %s -name . | grep -v target/ | grep -v plugins/ | grep -v sharedfs/ | grep -v node_modules/ | grep -v db/fixtures/ | grep -v spec/lib/miq_automation_engine/ | grep -v spa_ui/ | grep -v tmp/cache/ | grep -v vendor/assets/ | grep -v reports/coverage | grep -v locale/'
 
 " retag
 map <silent> <LocalLeader>rt :!/opt/local/bin/ctags -R --exclude=".git\|.svn\|log\|tmp\|db\|pkg" --extra=+f<CR>
-
 
 " NERD Tree
 map <silent> <LocalLeader>nt :NERDTreeToggle<CR>
